@@ -1,0 +1,38 @@
+import os
+
+def create_website_structure():
+    # Define the root directory for the website
+    website_root = input("Enter the name of the website root directory: ")
+    if not os.path.exists(website_root):
+        os.makedirs(website_root)
+
+    # Define subdirectories
+    subdirectories = ['css', 'js', 'images', 'html']
+
+    # Create subdirectories
+    for directory in subdirectories:
+        path = os.path.join(website_root, directory)
+        os.makedirs(path)
+        print(f"Created directory: {path}")
+
+    # Create index.html file
+    with open(os.path.join(website_root, 'index.html'), 'w') as f:
+        f.write('<!DOCTYPE html>\n')
+        f.write('<html lang="en">\n')
+        f.write('<head>\n')
+        f.write('    <meta charset="UTF-8">\n')
+        f.write('    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
+        f.write('    <title>My Website</title>\n')
+        f.write('    <link rel="stylesheet" href="css/style.css">\n')
+        f.write('</head>\n')
+        f.write('<body>\n')
+        f.write('    <h1>Welcome to My Website</h1>\n')
+        f.write('    <script src="js/script.js"></script>\n')
+        f.write('</body>\n')
+        f.write('</html>\n')
+
+    print("Website structure created successfully!")
+
+if __name__ == "__main__":
+    create_website_structure()
+
